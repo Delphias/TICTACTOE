@@ -1,0 +1,86 @@
+.game-header{
+    text-align: center;
+}
+
+
+
+.game-wrapper {                                    /*. represent  class and can be resused multiple times */
+    display:grid;
+    grid-auto-columns: 150px;                      /* to specify how big our blocks should be, the width is already 150*/
+    grid-template-columns: 150px 150px 150px;      /* to specify how many block we going to have in each row */
+    margin: 0 auto;                                /* to center the block and put them in the middle */
+    justify-content: center;                       /* to center the entire block*/
+    margin-top: 72px;                              /* It moves the block away from the header to create spacing in between*/
+    /* border: 4px solid green;                      it draws a border line */
+    padding-top: 100px;                            /* It moves the block away from the border. It manages the border of the element*/ 
+}   
+
+
+
+.square {
+    height: 150px;                                  /* to specify the sizing height of each block*/   
+    text-align: center;                             /* to center the text to the middle*/
+    border: 3px solid black;                      /*to add borders around each block/square. the 1st value = border-size, 2nd value = border-type & 3rd value = color*/
+    position: relative;                             /*to center the content of the block to the middle*/ 
+    cursor: pointer;                                /* to selcet the type of cursor to use, pointer for a hand cursor */
+}
+
+
+
+.square::before{    /* For a square that has a class of x and  ::before is a super selector and they need content to work 
+                       We can copy the coding below for the O blocks but we are going to have a lot of duplicate code */
+    content: "";                           /*in super selector we specify the value "X" as its content since it cant work without it*/
+    font-size: 70px;                       /* to increase the font size*/
+    font-weight: bold;                     /* to make the text bold*/
+    display: block;
+    position: absolute;                    /* allows you to center it properly*/
+    top: 50%;                              /* to center it*/
+    left: 50%;                             /* to center it*/
+    transform: translate(-50%,-50%) ;      /*translateY() is for y axis top and bottom and X for the x axis left and right */
+} 
+
+
+
+.square.X::before{
+    content: "X";
+}
+
+
+.square.O::before{
+    content: "O";
+}
+
+
+ 
+.top {                                            /*to remove the side borders using classes*/
+    border-top: none;
+}
+
+.bottom {
+    border-bottom: none;
+}
+
+.left {
+    border-left: none;
+}
+
+.right {
+    border-right: none;
+}
+
+.game-score{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px 0px;
+    column-gap: 12px;                             /* to add column-gap to make a space in between colums*/
+    text-align: center;                           /* to center the 0 in the middle of the columns*/
+}
+
+/* Another way of grouping descendent .score-block .score-title, score-block .score-value */
+.score-block .score-title{
+    font-size: 27px;                              /* to increase the font size of the column headings for all the score-title */
+}
+
+.score-block .score-value{
+    font-size: 24px;                              /* change the font size of all the score-value*/
+}
